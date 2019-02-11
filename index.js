@@ -10,18 +10,11 @@ const roundTo = require('round-to');
 var base64 = require('base-64');
 var apiai = require('apiai');
 var randomInt = require('random-int');
-var BusinessID = 11;
-var UserID = 21;
-var timer = 0;
-var verifyOTPModule;
-var booking_info;
-var addonsdetail = [];
-var customeraddress;
-var checkAddress;
-var congifURL = "https://foodbotyali.herokuapp.com/";
+
+var congifURL = "<HEROKU_APP_URL>";
 //var dotenv = require('dotenv').config()
 
-var dialogFlow = apiai("806487876e9f4e249e4274bc8058cbee");
+var dialogFlow = apiai("<DIALOGFLOW_TOKEN>");
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -34,7 +27,7 @@ app.listen((process.env.PORT || 3000));
 var combos;
 
 var status;
-var PAGE_ACCESS_TOKEN = 'EAAClKQZBAnGkBADgg2em6TRTHrMWm4ZCUbPfulWKQX1SolZBLBtvAtptlI2sA5JnYmSUfQcekhsTiu5l7Ehh5uKBtr1X9mnzLOd0n8R5jKviQkSV1JG3D4xU8Qp2LJxYUzizGHfZAjRvR7FbZBaMPTvcm9vaUbfCnM0rTKB0d9wZDZD'
+var PAGE_ACCESS_TOKEN = '<PAGE_ACCESS_TOKEN>'
 
 const sessions = {};
 
@@ -68,7 +61,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/webhook', function (req, res) {
-    if (req.query['hub.verify_token'] === 'yali_food_bot') {
+    if (req.query['hub.verify_token'] === '<YOUT_RANDOM_TOKEN>') {
         res.send(req.query['hub.challenge']);
 
     } else {
